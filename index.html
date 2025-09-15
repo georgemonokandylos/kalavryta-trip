@@ -8,20 +8,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Warm Neutrals with Soft Green Accent -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fefcf9;
-            color: #44403c;
+            background-color: #f8f5f2; /* Lighter off-white */
+            color: #292524; /* Deeper brown-gray */
         }
         .tab-btn {
             transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
         }
         .tab-btn.active {
-            background-color: #10b981;
+            background-color: #16a34a; /* Deeper green */
             color: white;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
         }
         .tab-content {
             display: none;
@@ -34,7 +34,7 @@
             border: 2px solid transparent;
         }
         .option-card.selected {
-            border-color: #10b981;
+            border-color: #16a34a;
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
         }
@@ -42,6 +42,11 @@
 </head>
 <body class="antialiased">
     <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-5xl">
+
+        <!-- Logo Section -->
+        <div class="flex justify-center mb-8">
+            <img src="https://scontent.fath7-1.fna.fbcdn.net/v/t39.30808-6/419541383_930057552456374_2205274518029722966_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=HRZ1DSOtpbkQ7kNvwHHVyGd&_nc_oc=AdnHMY6vs2jOb240bWuIigqQpoHevGYhMYsLBARs77ZIRL87Hoi-1pNyR7k_ZT55dfU&_nc_zt=23&_nc_ht=scontent.fath7-1.fna&_nc_gid=nA3nCWbMvMRzNkWzioDBqQ&oh=00_AfbIdtFHzsfLzG7udIMyb25lG3KubNqMpjuUblha5MucDw&oe=68CDD1C8" alt="Σχολικό Λογότυπο" class="rounded-full shadow-lg h-24 w-24 sm:h-32 sm:w-32 object-cover">
+        </div>
 
         <!-- Header Section -->
         <header class="text-center mb-12">
@@ -64,14 +69,14 @@
                     <p class="text-stone-600">Τριήμερο</p>
                 </div>
                 <div class="bg-emerald-50 p-4 rounded-lg">
-                    <div class="text-3xl mb-1">🚌</div>
+                    <div class="text-3xl mb-1">🚌🚗</div>
                     <h3 class="font-semibold text-stone-700">Αναχώρηση</h3>
-                    <p class="text-stone-600">Παρασκευή 16:00 από Αθήνα</p>
+                    <p class="text-stone-600">Παρασκευή 16:00 (με λεωφορείο ή ΙΧ)</p>
                 </div>
                 <div class="bg-emerald-50 p-4 rounded-lg">
                     <div class="text-3xl mb-1">🏡</div>
                     <h3 class="font-semibold text-stone-700">Επιστροφή</h3>
-                    <p class="text-stone-600">Κυριακή ~18:00 στην Αθήνα</p>
+                    <p class="text-stone-600">Κυριακή ~18:00 (με λεωφορείο ή ΙΧ)</p>
                 </div>
             </div>
         </section>

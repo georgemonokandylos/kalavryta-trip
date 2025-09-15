@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Εκδρομή στα Καλάβρυτα - Πρόγραμμα Νηπιαγωγείου</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals with Soft Green Accent -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefcf9;
+            color: #44403c;
+        }
+        .tab-btn {
+            transition: all 0.3s ease;
+        }
+        .tab-btn.active {
+            background-color: #10b981;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .option-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .option-card.selected {
+            border-color: #10b981;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-5xl">
+
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-emerald-700 mb-2">Μια Μαγική Εκδρομή στα Καλάβρυτα!</h1>
+            <p class="text-lg text-stone-600 max-w-3xl mx-auto">Ετοιμαστείτε για ένα αξέχαστο τριήμερο γεμάτο φύση, περιπέτεια και νέες γνώσεις, σχεδιασμένο ειδικά για τους μικρούς μας εξερευνητές.</p>
+        </header>
+
+        <!-- Key Info Section -->
+        <section class="mb-12 bg-white rounded-xl shadow-lg p-6">
+            <h2 class="text-2xl font-bold text-center mb-6 text-stone-800">Βασικές Πληροφορίες</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="bg-emerald-50 p-4 rounded-lg">
+                    <div class="text-3xl mb-1">📅</div>
+                    <h3 class="font-semibold text-stone-700">Ημερομηνίες</h3>
+                    <p class="text-stone-600">16 - 18 Νοεμβρίου</p>
+                </div>
+                <div class="bg-emerald-50 p-4 rounded-lg">
+                    <div class="text-3xl mb-1">⏳</div>
+                    <h3 class="font-semibold text-stone-700">Διάρκεια</h3>
+                    <p class="text-stone-600">Τριήμερο</p>
+                </div>
+                <div class="bg-emerald-50 p-4 rounded-lg">
+                    <div class="text-3xl mb-1">🚌</div>
+                    <h3 class="font-semibold text-stone-700">Αναχώρηση</h3>
+                    <p class="text-stone-600">Παρασκευή 16:00 από Αθήνα</p>
+                </div>
+                <div class="bg-emerald-50 p-4 rounded-lg">
+                    <div class="text-3xl mb-1">🏡</div>
+                    <h3 class="font-semibold text-stone-700">Επιστροφή</h3>
+                    <p class="text-stone-600">Κυριακή ~18:00 στην Αθήνα</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Itinerary Section -->
+        <section>
+            <h2 class="text-3xl font-bold text-center mb-8 text-stone-800">Το Πρόγραμμά μας</h2>
+
+            <!-- Tabs -->
+            <div id="tabs-container" class="flex justify-center space-x-2 sm:space-x-4 mb-8">
+                <button data-tab="friday" class="tab-btn active text-sm sm:text-base font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-full bg-white shadow-md">Παρασκευή</button>
+                <button data-tab="saturday" class="tab-btn text-sm sm:text-base font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-full bg-white shadow-md">Σάββατο</button>
+                <button data-tab="sunday" class="tab-btn text-sm sm:text-base font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-full bg-white shadow-md">Κυριακή</button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="bg-white rounded-xl shadow-lg p-6 min-h-[400px]">
+                <!-- Friday -->
+                <div id="friday" class="tab-content active">
+                    <h3 class="text-2xl font-bold mb-6 text-emerald-700 text-center">Παρασκευή: Άφιξη & Τακτοποίηση</h3>
+                     <div class="space-y-4">
+                        <div class="flex items-start space-x-4 p-4 bg-stone-50 rounded-lg">
+                            <div class="text-xl bg-emerald-100 text-emerald-700 rounded-full h-10 w-10 flex items-center justify-center flex-shrink-0">🚌</div>
+                            <div>
+                                <p class="font-bold">16:00</p>
+                                <p class="text-stone-600">Αναχώρηση από την Αθήνα. Το ταξίδι μας ξεκινά με τραγούδια και ιστορίες στο λεωφορείο!</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start space-x-4 p-4 bg-stone-50 rounded-lg">
+                            <div class="text-xl bg-emerald-100 text-emerald-700 rounded-full h-10 w-10 flex items-center justify-center flex-shrink-0">🏨</div>
+                            <div>
+                                <p class="font-bold">18:30</p>
+                                <p class="text-stone-600">Άφιξη στα Καλάβρυτα και τακτοποίηση στο ξενοδοχείο μας για ξεκούραση.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 p-4 bg-stone-50 rounded-lg">
+                            <div class="text-xl bg-emerald-100 text-emerald-700 rounded-full h-10 w-10 flex items-center justify-center flex-shrink-0">🌙</div>
+                            <div>
+                                <p class="font-bold">20:00</p>
+                                <p class="text-stone-600">Βραδινό φαγητό και χαλάρωση, προετοιμάζοντας τις δυνάμεις μας για την επόμενη μέρα.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saturday -->
+                <div id="saturday" class="tab-content">
+                    <h3 class="text-2xl font-bold mb-2 text-emerald-700 text-center">Σάββατο: Ημέρα Δράσης!</h3>
+                    <p class="text-center text-stone-600 mb-6">Το πρωί του Σαββάτου, επιλέγετε την περιπέτεια που ταιριάζει περισσότερο στην οικογένειά σας!</p>
+                    <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <!-- Option A -->
+                        <div class="option-card bg-stone-50 p-6 rounded-lg cursor-pointer">
+                            <h4 class="text-xl font-bold text-stone-800 mb-2">Επιλογή Α: Ο Κόσμος της Φύσης</h4>
+                            <p class="text-stone-600 mb-4">Μια μέρα αφιερωμένη στις γεύσεις και τα μυστικά της φύσης των Καλαβρύτων.</p>
+                            <ul class="space-y-2 text-stone-600 list-disc list-inside">
+                                <li>Επίσκεψη σε μελισσοκομείο για να μάθουμε για τις μέλισσες.</li>
+                                <li>Εκδρομή στο Πλανητέρο.</li>
+                                <li>Δραστηριότητα ψαρέματος πέστροφας.</li>
+                                <li>Γεύμα με τις φρέσκες μας ψαριές!</li>
+                            </ul>
+                        </div>
+                        <!-- Option B -->
+                        <div class="option-card bg-stone-50 p-6 rounded-lg cursor-pointer">
+                           <h4 class="text-xl font-bold text-stone-800 mb-2">Επιλογή Β: Ιστορία & Εξερεύνηση</h4>
+                            <p class="text-stone-600 mb-4">Ένα ταξίδι στα γεωλογικά θαύματα και τη συγκινητική ιστορία της περιοχής.</p>
+                            <ul class="space-y-2 text-stone-600 list-disc list-inside">
+                                <li>Εξερεύνηση στο μοναδικό Σπήλαιο των Λιμνών.</li>
+                                <li>Επίσκεψη στο ιστορικό Μνημείο του Ολοκαυτώματος.</li>
+                                <li>Γεύμα σε παραδοσιακή ταβέρνα.</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="flex items-start space-x-4 p-4 bg-emerald-50 border-l-4 border-emerald-500 rounded-r-lg">
+                        <div class="text-xl text-emerald-700">🏛️</div>
+                        <div>
+                            <p class="font-bold">Απόγευμα (Κοινή Δραστηριότητα)</p>
+                            <p class="text-stone-600">Όλες οι ομάδες θα επισκεφθούν την **Ιστορική Μονή της Αγίας Λαύρας**, ένα μέρος με τεράστια σημασία για την ιστορία της Ελλάδας.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunday -->
+                <div id="sunday" class="tab-content">
+                    <h3 class="text-2xl font-bold mb-6 text-emerald-700 text-center">Κυριακή: Ημέρα Οδοντωτού!</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4 p-4 bg-stone-50 rounded-lg">
+                            <div class="text-xl bg-emerald-100 text-emerald-700 rounded-full h-10 w-10 flex items-center justify-center flex-shrink-0">🚂</div>
+                            <div>
+                                <p class="font-bold">10:00</p>
+                                <p class="text-stone-600">Επιβίβαση στον θρυλικό **Οδοντωτό**! Ξεκινάμε μια μαγευτική διαδρομή μέσα από το φαράγγι του Βουραϊκού με προορισμό τη Ζαχλωρού.</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start space-x-4 p-4 bg-stone-50 rounded-lg">
+                            <div class="text-xl bg-emerald-100 text-emerald-700 rounded-full h-10 w-10 flex items-center justify-center flex-shrink-0">🌳</div>
+                            <div>
+                                <p class="font-bold">10:30</p>
+                                <p class="text-stone-600">Άφιξη στη Ζαχλωρού για δίωρη στάση. Τα παιδιά θα παίξουν και θα εξερευνήσουν το δάσος, ενώ οι γονείς μπορούν να απολαύσουν τον καφέ τους.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 p-4 bg-stone-50 rounded-lg">
+                            <div class="text-xl bg-emerald-100 text-emerald-700 rounded-full h-10 w-10 flex items-center justify-center flex-shrink-0">🍽️</div>
+                            <div>
+                                <p class="font-bold">13:00</p>
+                                <p class="text-stone-600">Επιστροφή στα Καλάβρυτα για το τελευταίο μας μεσημεριανό γεύμα.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 p-4 bg-stone-50 rounded-lg">
+                            <div class="text-xl bg-emerald-100 text-emerald-700 rounded-full h-10 w-10 flex items-center justify-center flex-shrink-0">👋</div>
+                            <div>
+                                <p class="font-bold">15:30</p>
+                                <p class="text-stone-600">Αναχώρηση για την Αθήνα, γεμάτοι όμορφες εικόνες και αναμνήσεις.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Packing Section -->
+        <section class="mt-12">
+            <h2 class="text-3xl font-bold text-center mb-8 text-stone-800">Τι να Έχουμε Μαζί μας</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl mb-2">🧥</div>
+                    <p class="font-semibold text-stone-700">Ζεστά Ρούχα</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl mb-2">🧤</div>
+                    <p class="font-semibold text-stone-700">Γάντια & Κασκόλ</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl mb-2">🧢</div>
+                    <p class="font-semibold text-stone-700">Σκουφάκι</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl mb-2">🍎</div>
+                    <p class="font-semibold text-stone-700">Σνακ & Νερό</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12 pt-8 border-t border-stone-200">
+             <p class="text-stone-600">Για οποιαδήποτε απορία, είμαστε στη διάθεσή σας!</p>
+             <p class="text-sm text-stone-500 mt-2">Νηπιαγωγείο [Όνομα Νηπιαγωγείου]</p>
+        </footer>
+    </div>
+
+    <script>
+        const tabsContainer = document.getElementById('tabs-container');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const optionsContainer = document.getElementById('options-container');
+        const optionCards = document.querySelectorAll('.option-card');
+
+        tabsContainer.addEventListener('click', (event) => {
+            const clickedButton = event.target.closest('.tab-btn');
+            if (!clickedButton) return;
+
+            const tabId = clickedButton.dataset.tab;
+
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            clickedButton.classList.add('active');
+
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === tabId) {
+                    content.classList.add('active');
+                }
+            });
+        });
+
+        optionsContainer.addEventListener('click', (event) => {
+            const clickedCard = event.target.closest('.option-card');
+            if (!clickedCard) return;
+
+            optionCards.forEach(card => {
+                card.classList.remove('selected');
+            });
+            clickedCard.classList.add('selected');
+        });
+    </script>
+</body>
+</html>
